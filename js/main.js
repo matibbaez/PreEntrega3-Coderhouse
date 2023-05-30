@@ -6,73 +6,73 @@ const vuelos = [
         id: "berlin",
         titulo: "Berlin",
         imagen: "./assets/berlin01.jpg",
-        precio: 800
+        precio: 750
     },
     {
         id: "amsterdam",
         titulo: "Amsterdam",
         imagen: "./assets/amsterdam01.jpg",
-        precio: 700
+        precio: 560
     },
     {
         id: "santiago",
         titulo: "Santiago de Chile",
         imagen: "./assets/santiago01.jpg",
-        precio: 800
+        precio: 200
     },
     {
         id: "cancun",
         titulo: "Cancun",
         imagen: "./assets/cancun02.jpg",
-        precio: 800
+        precio: 450
     },
     {
         id: "paris",
         titulo: "Paris",
         imagen: "./assets/paris01.jpg",
-        precio: 800
+        precio: 850
     },
     {
         id: "dubai",
         titulo: "Dubai",
         imagen: "./assets/dubai01.jpg",
-        precio: 800
+        precio: 1200
     },
     {
         id: "newyork",
         titulo: "New York",
         imagen: "./assets/newyork.jpg",
-        precio: 800
+        precio: 770
     },
     {
         id: "riodejaneiro",
         titulo: "Rio de Janeiro",
         imagen: "./assets/riodejaneiro01.jpg",
-        precio: 800
+        precio: 425
     },
     {
         id: "buenosaires",
         titulo: "Buenos Aires",
         imagen: "./assets/argentina01.jpg",
-        precio: 800
+        precio: 350
     },
     {
         id: "londres",
         titulo: "Londres",
         imagen: "./assets/londres01.jpg",
-        precio: 800
+        precio: 850
     },
     {
         id: "madrid",
         titulo: "Madrid",
         imagen: "./assets/madrid01.jpg",
-        precio: 800
+        precio: 600
     },
     {
         id: "roma",
         titulo: "Roma",
         imagen: "./assets/roma01.jpg",
-        precio: 800
+        precio: 725
     },
 ]
 
