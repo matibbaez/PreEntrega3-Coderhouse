@@ -20,6 +20,7 @@
                         <li><a class="boton-menu boton-cat" href="#intro-viajes">Inicio</a></li>
                         <li><a class="boton-menu boton-cat" href="#our-team">¿Quiénes somos?</a></li>
                         <li><a class="boton-menu boton-cat" href="#viajes">Viajes</a></li>
+                        <li><a class="boton-menu boton-cat" href="#contact">Contáctanos</a></li>
                         <li><a class="boton-menu boton-carrito" href="/carrito.html"><i class="bi bi-cart-fill"></i>Carrito <span id="numero-cart" class="numero-cart">0</span></a></li>
                     </ul>
                 </nav>
@@ -70,6 +71,25 @@
             </div>
         </main>
 
+        <section id="contact" data-aos="fade-up">
+            <div class="u-wrapper">
+              <div class="contact-content">
+        
+                <form id="form" action="" class="form">
+                  <h3 class="tag"><span>Contáctanos</span></h3>
+                  <label for="name">Nombre Completo <span>*</span></label>
+                  <input name="name" required type="text" id="name" placeholder="Su nombre">
+                  <label for="email">Correo electrónico <span>*</span></label>
+                  <input name="email" type="text" id="email" required placeholder="usted@gmail.com">
+                  <label for="message">Mensaje</label>
+                  <textarea id="message" name="message" id="" cols="30" rows="10"></textarea>
+                  <button type="submit" class="add-to-cart-button">Enviar mensaje</button>
+                </form>
+                <a href="mailto:matiascaneda@gmail.com" id="mail-ocultar"></a>
+              </div>
+            </div>
+          </section>
+
         <footer>
 
             <div class="container__footer" data-aos="fade-up">
@@ -113,5 +133,6 @@
         AOS.init();
     </script>
     <script src="/js/main.js"></script>
+    <script src="/js/form.js"></script>
 </body>
 </html>
