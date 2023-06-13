@@ -81,6 +81,24 @@ function actualizarBotonesEliminar () {
 // Eliminar del carrito
 
 function eliminarDelCarrito (e) {
+    Toastify({
+        text: "Vuelo eliminado",
+        duration: 3000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #3a70d1, #33a1b8, #45fce8)",
+          borderRadius: "1.25rem"
+        },
+        offset: {
+            x: "1.25rem",
+            y: "1.5rem"
+        },
+        onClick: function(){} // Callback after click
+    }).showToast();
+
     let idBoton = e.currentTarget.id;
     const index = vuelosEnCarrito.findIndex(vuelo => vuelo.id === idBoton);
 
@@ -96,10 +114,24 @@ botonVaciar.addEventListener("click", vaciarCarrito);
 
 function vaciarCarrito () {
 
-    vuelosEnCarrito.length = 0;
-    localStorage.setItem("vuelos-en-carrito", JSON.stringify(vuelosEnCarrito));
-    cargarVuelosCarrito();
-
+    Swal.fire({
+        title: '¿Estás seguro?',
+        icon: 'question',
+        html: `Se van a eliminar ${vuelosEnCarrito.reduce((acc, vuelo) => acc + vuelo.pasajeros, 0)} vuelos.`,
+        showCancelButton: true,
+        focusConfirm: false,
+        confirmButtonText:
+          'Sí',
+        cancelButtonText:
+          'No',
+    }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          vuelosEnCarrito.length = 0;
+          localStorage.setItem("vuelos-en-carrito", JSON.stringify(vuelosEnCarrito));
+          cargarVuelosCarrito();
+        } 
+    })
 }
 
 // Actualizar el total de vuelos

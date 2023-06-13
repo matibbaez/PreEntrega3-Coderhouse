@@ -1,80 +1,11 @@
-// VIAJES DISPONIBLES
+let vuelos = [];
 
-const vuelos = [
-
-    {
-        id: "berlin",
-        titulo: "Berlin",
-        imagen: "./assets/berlin01.jpg",
-        precio: 750
-    },
-    {
-        id: "amsterdam",
-        titulo: "Amsterdam",
-        imagen: "./assets/amsterdam01.jpg",
-        precio: 560
-    },
-    {
-        id: "santiago",
-        titulo: "Santiago de Chile",
-        imagen: "./assets/santiago01.jpg",
-        precio: 200
-    },
-    {
-        id: "cancun",
-        titulo: "Cancun",
-        imagen: "./assets/cancun02.jpg",
-        precio: 450
-    },
-    {
-        id: "paris",
-        titulo: "Paris",
-        imagen: "./assets/paris01.jpg",
-        precio: 850
-    },
-    {
-        id: "dubai",
-        titulo: "Dubai",
-        imagen: "./assets/dubai01.jpg",
-        precio: 1200
-    },
-    {
-        id: "newyork",
-        titulo: "New York",
-        imagen: "./assets/newyork.jpg",
-        precio: 770
-    },
-    {
-        id: "riodejaneiro",
-        titulo: "Rio de Janeiro",
-        imagen: "./assets/riodejaneiro01.jpg",
-        precio: 425
-    },
-    {
-        id: "buenosaires",
-        titulo: "Buenos Aires",
-        imagen: "./assets/argentina01.jpg",
-        precio: 350
-    },
-    {
-        id: "londres",
-        titulo: "Londres",
-        imagen: "./assets/londres01.jpg",
-        precio: 850
-    },
-    {
-        id: "madrid",
-        titulo: "Madrid",
-        imagen: "./assets/madrid01.jpg",
-        precio: 600
-    },
-    {
-        id: "roma",
-        titulo: "Roma",
-        imagen: "./assets/roma01.jpg",
-        precio: 725
-    },
-]
+fetch("./js/vuelos.json")
+    .then(response => response.json())
+    .then(data => {
+        vuelos = data;
+        cargarVuelos(vuelos);
+    })
 
 const contenedorVuelos = document.querySelector("#contenedor-vuelos");
 let botonesAdd = document.querySelectorAll(".add-to-cart-button");
@@ -129,6 +60,23 @@ if (vuelosEnCarritoLS) {
 // Funcion para agregar al carrito
 
 function agregarAlCarrito(e) {
+    Toastify({
+        text: "Vuelo agregado",
+        duration: 3000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #3a70d1, #33a1b8, #45fce8)",
+          borderRadius: "1.25rem"
+        },
+        offset: {
+            x: "1.25rem",
+            y: "1.5rem"
+        },
+        onClick: function(){} // Callback after click
+    }).showToast();
 
     const idBoton = e.currentTarget.id;
     const vueloAgregado = vuelos.find(vuelo => vuelo.id === idBoton);
