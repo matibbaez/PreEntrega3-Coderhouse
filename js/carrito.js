@@ -146,11 +146,33 @@ function actualizarTotal () {
 botonComprar.addEventListener("click", comprarCarrito);
 function comprarCarrito () {
 
-    vuelosEnCarrito.length = 0;
-    localStorage.setItem("vuelos-en-carrito", JSON.stringify(vuelosEnCarrito));
+    Swal.fire({
+        title: 'Confirmar compra',
+        icon: 'success',
+        html: `Comprarás ${vuelosEnCarrito.reduce((acc, vuelo) => acc + vuelo.pasajeros, 0)} vuelos.`,
+        showCancelButton: true,
+        focusConfirm: false,
+        confirmButtonText:
+          'Sí',
+        cancelButtonText:
+          'No',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            vuelosEnCarrito.length = 0;
+            localStorage.setItem("vuelos-en-carrito", JSON.stringify(vuelosEnCarrito));
+        
+            contenedorCarritoVacio.classList.add("disabled");
+            contenedorCarritoVuelos.classList.add("disabled");
+            contenedorCarritoAcciones.classList.add("disabled");
+            contenedorCarritoComprado.classList.remove("disabled");
+        } 
+    })
 
-    contenedorCarritoVacio.classList.add("disabled");
-    contenedorCarritoVuelos.classList.add("disabled");
-    contenedorCarritoAcciones.classList.add("disabled");
-    contenedorCarritoComprado.classList.remove("disabled");
+    // vuelosEnCarrito.length = 0;
+    // localStorage.setItem("vuelos-en-carrito", JSON.stringify(vuelosEnCarrito));
+
+    // contenedorCarritoVacio.classList.add("disabled");
+    // contenedorCarritoVuelos.classList.add("disabled");
+    // contenedorCarritoAcciones.classList.add("disabled");
+    // contenedorCarritoComprado.classList.remove("disabled");
 }
